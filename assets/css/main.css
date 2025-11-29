@@ -1096,7 +1096,7 @@ section,
 }
 
 .services .service-item .icon i {
-  font-size: 36px;
+  /* font-size: 36px; */
   transition: 0.5s;
   position: relative;
 }
