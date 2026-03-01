@@ -43,6 +43,12 @@ h5 {
   font-weight: 650;
 }
 
+/* menu */
+.navmenu li:hover {
+  color: var(--accent-color);
+}
+/* end menu */
+
 /* solutions */
 .solution-list {
   font-size: 1.5rem;
@@ -84,8 +90,12 @@ h5 {
 
 /* contact */
 #contact-content {
-  padding: 1rem 10rem;
+  padding: 4rem 10rem;
   background-color: #e8f5f3;
+}
+
+.contact.section {
+  padding: 0;
 }
 /* end contact */
 

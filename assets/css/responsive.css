@@ -4,6 +4,12 @@
         font-size: 55%;
     } */
 
+    /* about */
+    #about img {
+        width: 35rem;
+    }
+    /* end about */
+
     #contact-content {
         padding: 1rem;
     }

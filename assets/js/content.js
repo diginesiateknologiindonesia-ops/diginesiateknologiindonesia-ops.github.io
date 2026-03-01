@@ -10,6 +10,12 @@ $(document).ready(function() {
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('id');
 
+  const preloader = document.querySelector('#preloader');
+
+  AOS.init({
+    once: true
+  });
+
   getHeader(path,folder, filename);
   if (path == '/about.html') {
     var teams = [
@@ -17,9 +23,9 @@ $(document).ready(function() {
       {id: 2, name: 'Sarah Jhonson', position: 'Product Manager', image: 'team-2.jpg', sosmed: [{id:1, icon:'bi bi-twitter-x', link:'javascript:void(0)'}, {id:2, icon:'bi bi-facebook', link:'javascript:void(0)'}, {id:3, icon:'bi bi-instagram', link:'javascript:void(0)'}, {id:4, icon:'bi bi-linkedin', link:'javascript:void(0)'}]},
       {id: 3, name: 'William Anderson', position: 'CTO', image: 'team-3.jpg', sosmed: [{id:1, icon:'bi bi-twitter-x', link:'javascript:void(0)'}, {id:2, icon:'bi bi-facebook', link:'javascript:void(0)'}, {id:3, icon:'bi bi-instagram', link:'javascript:void(0)'}, {id:4, icon:'bi bi-linkedin', link:'javascript:void(0)'}]},
       {id: 4, name: 'Amanda Jepson', position: 'Accountant', image: 'team-4.jpg', sosmed: [{id:1, icon:'bi bi-twitter-x', link:'javascript:void(0)'}, {id:2, icon:'bi bi-facebook', link:'javascript:void(0)'}, {id:3, icon:'bi bi-instagram', link:'javascript:void(0)'}, {id:4, icon:'bi bi-linkedin', link:'javascript:void(0)'}]}
-  ];
+    ];
 
-  var clients = [
+    var clients = [
       {id: 1, image: 'client-1.png'},
       {id: 2, image: 'client-2.png'},
       {id: 3, image: 'client-3.png'},
@@ -28,7 +34,7 @@ $(document).ready(function() {
       {id: 6, image: 'client-6.png'},
       {id: 7, image: 'client-7.png'},
       {id: 8, image: 'client-8.png'}
-  ];
+    ];
 
     getAbout();
     getTeams(teams);
@@ -159,7 +165,9 @@ $(document).ready(function() {
   /**
   * Service Details Page
   */
-
+ if (preloader) {
+  preloader.remove();
+ }
 });
 
 function getHeader(path, folder, filename) {
@@ -172,7 +180,7 @@ function getHeader(path, folder, filename) {
         '<ul>' +
           '<li><a href="' + (folder == 'products' || folder == 'solutions' || folder == 'services' ? '/index.html' : 'index.html') + '" class="' + (path == '/index.html' ? 'active' : '') + '">Home</a></li>' +
           '<li><a href="' + (folder == 'products' || folder == 'solutions' || folder == 'services' ? '/about.html' : 'about.html') + '" class="' + (path == '/about.html' ? 'active' : '') + '">About Us</a></li>' +
-          '<li class="dropdown ' + (folder == 'products' ? 'active' : '') + '"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i>' +
+          '<li class="dropdown ' + (folder == 'products' ? 'active' : '') + '"><a href="javascript:void(0)"><span>Products</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>' +
             '<ul>' +
               '<li><a href="' + (folder == 'products' || folder == 'solutions' || folder == 'services' ? '/products/rfid.html' : 'products/rfid.html') + '" class="' + (path == '/products/rfid.html' ? 'active' : '') + '">RFID</a></li>' +
               '<li><a href="' + (folder == 'products' || folder == 'solutions' || folder == 'services' ? '/products/barcode.html' : 'products/barcode.html') + '" class="' + (path == '/products/barcode.html' ? 'active' : '') + '">Barcode</a></li>' +
