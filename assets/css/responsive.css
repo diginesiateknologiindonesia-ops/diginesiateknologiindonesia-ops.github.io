@@ -1,0 +1,14 @@
+/* Mobile */
+@media (max-width: 450px) {
+    /* html {
+        font-size: 55%;
+    } */
+
+    #contact-content {
+        padding: 1rem;
+    }
+
+    .whatsapp img {
+        height: 50px;
+    }
+}

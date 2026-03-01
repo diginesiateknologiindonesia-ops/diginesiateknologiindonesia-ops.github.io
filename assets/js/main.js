@@ -73,13 +73,30 @@ $(document).ready(function() {
      * Scroll top button
      */
     let scrollTop = document.querySelector('.scroll-top');
+    let whatsApp = document.querySelector('.whatsapp');
     let footer = document.getElementById('footer');
 
     function toggleScrollTop() {
       if (scrollTop) {
         window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
       }
+
+      // if (whatsApp) {
+      //   window.scrollY > 1000 ? whatsApp.classList.remove('active') : whatsApp.classList.add('active');
+      // }
     }
+
+    window.addEventListener('scroll', () => {
+      const footerTop = footer.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+
+      if (footerTop < screenHeight) {
+        whatsApp.classList.remove('active');
+      } else {
+        whatsApp.classList.add('active');
+      }
+    });
+
     scrollTop.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({
